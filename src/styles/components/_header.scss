@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: $header-height;
+  padding-left: .75rem;
+  padding-bottom: .5rem;
+  position: relative;
+  @include responsive {
+    height: $header-height-desktop;
+  }
+  .waves {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    fill: white; 
+    z-index: 1;
+    margin-top: -1px;
+    @include responsive {
+      // display: none;
+    }
+  }
+} 
+
+.header-logo {
+  flex: 0 1 200px;
+  @include responsive {
+    flex: 0 0 270px;
+  }
+}

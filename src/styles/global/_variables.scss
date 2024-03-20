@@ -1,0 +1,74 @@
+$pink: #D14B73;
+$pink-rgb: 209,75,115;
+$baby-blue: #0FAEBA;
+$teal: $baby-blue;
+$baby-blue-rgb: 15,174,186;
+$teal-rgb: $baby-blue-rgb;
+$teal-light: #6FC1C7;
+$teal-light-rgb: 111,193,199;
+$baby-blue-dull: #73C9CF;
+$baby-blue-dull-rgb: 115,201,207;
+$light: #FCFBF0;
+$light-rgb: 252,251,240;
+$blue: #2E869E;
+$blue-rgb: 46,134,158;
+$navy-dark: #00092D;
+$dark: $navy-dark;
+$navy-dark-rgb: 0,9,45;
+$dark-rgb: $navy-dark-rgb;
+$baby-pink-medium: #9A0039;
+$baby-pink-medium-rgb: 154,0,57;
+$purple: $baby-pink-medium;
+$purple-rgb: $baby-pink-medium-rgb;
+
+:root {
+  --mmb-pink: #{$pink};
+  --mmb-pink-rgb: #{$pink-rgb};
+  --mmb-teal: #{$baby-blue};
+  --mmb-teal-rgb: #{$baby-blue-rgb};
+  --mmb-baby-blue: #{$baby-blue};
+  --mmb-baby-blue-rgb: #{$baby-blue-rgb};
+  --mmb-teal-light: #{$teal-light};
+  --mmb-teal-light-rgb: #{$teal-light-rgb};
+  --mmb-baby-blue-dull: #{$baby-blue-dull};
+  --mmb-baby-blue-dull-rgb: #{$baby-blue-dull-rgb};
+  --mmb-light: #{$light};
+  --mmb-light-rgb: #{$light-rgb};
+  --mmb-blue: #{$blue};
+  --mmb-blue-rgb: #{$blue-rgb};
+  --mmb-dark: #{$dark};
+  --mmb-dark-rgb: #{$dark-rgb}; 
+  --mmb-navy-dark: #{$navy-dark};
+  --mmb-navy-dark-rgb: #{$navy-dark-rgb}; 
+  --mmb-baby-pink-medium: #{$baby-pink-medium};
+  --mmb-baby-pink-medium-rgb: #{$baby-pink-medium-rgb};
+}
+
+$shadow: rgba(black, .5) 0 2px 4px;
+
+$header-height: 105px;
+$header-height-desktop: 145px;
+
+$small-break: 375px;
+$plus-break: 414px;
+$break: 768px;
+// ipad air 5th gen, ipad 10th gen: 820px;
+$ipad: 820px;
+$large-break: 1024px;
+
+
+$content-width: 1200px;
+$wide-width: 1400px;
+
+
+$admin-bar-mobile: 46px;
+$admin-bar: 32px;
+
+$fw-extralight: 200;
+$fw-light: 300;
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+$fw-extrabold: 800;
+$fw-black: 900; 

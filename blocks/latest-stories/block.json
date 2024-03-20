@@ -1,0 +1,33 @@
+{
+  "name": "cdhq/latest-stories",
+  "title": "Latest Stories",
+  "description": "Display of the 3 latest stories.",
+  "style": "latest-stories-style",
+  "script": "latest-stories-script",
+  "dependencies": {
+    "style": ["swiper-styles"]
+  },
+  "category": "cdhq",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "latest-stories.php"
+  },
+  "supports": {
+    "align": true,
+    "color": {
+      "background": true,
+      "text": false
+    }
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "light"
+    }
+  },
+  "icon": "embed-photo"
+}

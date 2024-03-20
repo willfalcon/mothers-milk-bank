@@ -1,0 +1,15 @@
+.button {
+  background: var(--mmb-light);
+  color: var(--mmb-pink);
+  @include font-serif($fw-bold);
+  font-size: 2rem;
+  padding: 1rem;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px 20px 14px 26px;
+  @include responsive {
+    border-radius: 6px 36px 22px 51.5px;
+    font-size: 2.4rem;
+    padding: 2rem 4rem;
+  }
+}

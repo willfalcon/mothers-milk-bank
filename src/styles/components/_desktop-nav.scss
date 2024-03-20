@@ -1,0 +1,57 @@
+.header-nav {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  transform: none;
+  background: transparent;
+  padding: 0;
+  align-items: flex-end;
+  height: auto;
+  flex: 0 1 auto;
+  .admin-bar & {
+    height: auto;
+  }
+  &__menu {
+    display: flex;
+    margin: 0;
+  }
+  .main-menu {
+    order: 2;
+    padding: 0 1.5rem;
+    .menu-item {
+      border: 1px solid var(--mmb-baby-blue-dull);
+      background: transparent;
+      margin-left: 1.5rem;
+      a {
+        padding: .5rem 3rem;
+      }
+    }
+    span {
+      display: block;
+      &.small-label {
+        color: var(--mmb-teal-light);
+        @include font($fw-semibold);
+        text-transform: uppercase;
+        font-size: 1.4rem;
+      }
+      &.large-label {
+        color: var(--mmb-pink);
+        font-size: 3.6rem;
+        font-weight: $fw-regular;
+        text-transform: lowercase;
+      }
+    }
+  }
+  .admin-menu {
+    order: 1;
+    background: var(--mmb-teal-light);
+    border-bottom-left-radius: 20px;
+    .menu-item {
+      margin: 0;
+    }
+    a {
+      font-size: 1.8rem;
+      padding: 1.5rem;
+    }
+  }
+}

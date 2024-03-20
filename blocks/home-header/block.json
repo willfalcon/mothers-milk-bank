@@ -1,0 +1,26 @@
+{
+  "name": "cdhq/home-header",
+  "title": "Homepage header",
+  "description": "Header block for homepage.",
+  "style": "home-header-style",
+  "category": "cdhq",
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "home-header.php"
+  },
+  "supports": {
+    "align": true,
+    "color": {
+      "background": true,
+      "text": false
+    }
+  },
+  "attributes": {
+    "backgroundColor": {
+      "type": "string",
+      "default": "pink"
+    }
+  },
+  "align": "full",
+  "icon": "embed-photo"
+}

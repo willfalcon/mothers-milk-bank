@@ -1,0 +1,85 @@
+.footer {
+  background: var(--mmb-navy-dark);
+  @include font-bilo;
+  padding: 3rem;
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  
+  @include responsive {
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: 350px 1fr;
+  }
+
+  &-logo {
+    grid-row: 1 / 2;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
+    @include responsive {
+      margin-left: 0;
+      width: 275px;
+      grid-row: 1 / span 2;
+    }
+  }
+  &__contact {
+    color: var(--mmb-light);
+    grid-row: 2 / 3;
+    @include responsive {
+      text-align: center;
+    }
+  }
+  &__address {
+    font-style: normal;
+    text-align: center;
+    margin-bottom: 1rem;
+    @include responsive {
+      display: inline;
+    }
+    &::after {
+      content: '\00B7';
+      font-size: 2rem;
+      font-weight: $fw-bold;
+      margin-left: 10px;
+      margin-right: 7px;
+    }
+  }
+  &__phone {
+    color: var(--mmb-light);
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    margin-bottom: 1rem;
+    @include responsive {
+      display: inline;
+    }
+  }
+  &__message {
+    color: white;
+    grid-row: 3 / 4;
+    font-size: 1.4rem;
+    p {
+      line-height: 1.7;
+    }
+    @include responsive {
+      font-size: 1.6rem;
+    }
+  }
+  &__menu {
+    display: none;
+    @include responsive {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      justify-content: center;
+      &.main-menu {
+        .menu-item {
+          margin: 0;
+          a {
+            // padding: 
+          }
+        }
+      }
+    }
+  }
+}

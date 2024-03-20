@@ -1,0 +1,77 @@
+@import '../block-imports';
+
+.home-header {
+  position: relative;
+  // margin-top: 6.25% !important;
+  padding-top: 3rem !important;
+  
+  &__image-wrapper {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 250px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__content {
+    padding: 1rem;
+  }
+  &__text {
+    color: var(--mmb-light);
+    @include font-serif; 
+    text-align: center;
+    font-size: 2rem;
+    text-wrap: pretty;
+  }
+
+  &__buttons {
+    list-style: none;
+    padding: 0 2rem;
+  }
+  &__button {
+    padding: 0;
+    margin-bottom: 1rem;
+    margin-left: 0;
+    display: block;
+    .button {
+      display: block;
+    }
+  }
+
+  .waves {
+    
+    fill: var(--mmb-pink);
+    // width: 100%;
+    position: absolute;
+    top: 100%;
+    margin-top: -1px; 
+    left: 0;
+  }
+
+  @include responsive {
+    display: flex;
+    padding-top: 10rem !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    padding-bottom: 2rem !important;
+    gap: 3rem;
+    &__image-wrapper {
+      width: 350px;
+      height: 350px;
+      flex: 0 0 350px;
+    }
+
+    &__buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 0;
+    }
+    &__text {
+      font-size: 3rem;
+      text-align: left;
+      padding: 0 2rem;
+    }
+  }
+}

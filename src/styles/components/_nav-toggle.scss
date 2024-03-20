@@ -1,0 +1,52 @@
+.nav-toggle {
+  $size: 70px;
+  width: $size;
+  height: $size;
+  background: var(--mmb-teal-light);
+  border: 0;
+  flex: 0 0 $size;
+  padding: 0;
+  border-bottom-left-radius: 25px;
+  position: relative;
+  @include responsive {
+    display: none;
+  }
+
+
+  span {
+    display: block;
+    background: white;
+    position: absolute;
+    height: 6px;
+    $span-width: $size * .75; 
+    width: $span-width;
+    left: 50%;
+    transition: .15s;
+    border-radius: $size * .5;
+    top: $size * .5;
+    $offset: 5;
+    $space: 14;
+    &:nth-child(1) {
+      transform: translateY(-#{$space + $offset}px ) translateX(#{$span-width * -.5}) rotate(0deg);
+      will-change: transform;
+      .open & {
+        transform: translateY(-#{$offset}px) translateX(#{$span-width * -.5}) rotate(45deg);
+      }
+    }
+    &:nth-child(2) {
+      transform: translateY(-#{$offset}px) translateX(-50%);
+      opacity: 1;
+      will-change: opacity;;
+      .open & {
+        opacity: 0;
+      }
+    }
+    &:nth-child(3) {
+      transform: translateY(#{$space - $offset}px) translateX(#{$span-width * -.5}) rotate(0deg);
+      will-change: transform;
+      .open & {
+        transform: translateY(-#{$offset}px) translateX(#{$span-width * -.5}) rotate(-45deg);
+      }
+    }
+  }
+}
