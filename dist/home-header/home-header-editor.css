@@ -1,0 +1,13 @@
+.home-header {
+  margin-bottom: 100px;
+}
+.home-header .waves {
+  pointer-events: none;
+}
+
+.wp-block[data-type="cdhq/home-header"] + *,
+.wp-block[data-type="cdhq/page-header"] + * {
+  z-index: 3;
+  position: relative;
+}
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImhvbWUtaGVhZGVyLWVkaXRvci5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBSUU7O0FBSEE7RUFDRTs7O0FBT0Y7QUFBQTtFQUNFO0VBQ0EiLCJmaWxlIjoiaG9tZS1oZWFkZXItZWRpdG9yLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5ob21lLWhlYWRlciB7XG4gIC53YXZlcyB7XG4gICAgcG9pbnRlci1ldmVudHM6IG5vbmU7XG4gIH1cbiAgbWFyZ2luLWJvdHRvbTogMTAwcHg7XG59XG5cbi53cC1ibG9ja1tkYXRhLXR5cGU9XCJjZGhxL2hvbWUtaGVhZGVyXCJdLFxuLndwLWJsb2NrW2RhdGEtdHlwZT1cImNkaHEvcGFnZS1oZWFkZXJcIl0ge1xuICArICoge1xuICAgIHotaW5kZXg6IDM7IFxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgfVxufVxuIl19 */

@@ -1,12 +1,29 @@
 .footer {
   background: var(--mmb-navy-dark);
-  @include font-bilo;
-  padding: 3rem;
   display: grid;
   grid-template-rows: repeat(3, auto);
+  grid-template-columns: 1fr;
+  position: relative;
+  padding: 0 1.5rem 3rem;
+  gap: 2rem;
   
   @include responsive {
-    grid-template-rows: repeat(3, auto);
+    margin-top: 7rem;
+    padding: 0 3rem 3rem;
+    gap: 0;
+  }
+  .waves {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    transform: rotate(180deg) translateY(calc(100% - 1px));
+    fill: var(--mmb-navy-dark);
+    z-index: 2;
+  }
+  
+  @include responsive {
+    grid-template-rows: repeat(2, auto);
     grid-template-columns: 350px 1fr;
   }
 
@@ -19,12 +36,13 @@
     @include responsive {
       margin-left: 0;
       width: 275px;
-      grid-row: 1 / span 2;
+      grid-row: 1 / 2;
     }
   }
   &__contact {
-    color: var(--mmb-light);
+    color: var(--mmb-milk-light);
     grid-row: 2 / 3;
+    @include font-bilo;
     @include responsive {
       text-align: center;
     }
@@ -35,17 +53,17 @@
     margin-bottom: 1rem;
     @include responsive {
       display: inline;
-    }
-    &::after {
-      content: '\00B7';
-      font-size: 2rem;
-      font-weight: $fw-bold;
-      margin-left: 10px;
-      margin-right: 7px;
+      &::after {
+        content: '\00B7';
+        font-size: 2rem;
+        font-weight: $fw-bold;
+        margin-left: 10px;
+        margin-right: 7px;
+      }
     }
   }
   &__phone {
-    color: var(--mmb-light);
+    color: var(--mmb-milk-light);
     text-decoration: none;
     text-align: center;
     display: block;
@@ -58,28 +76,22 @@
     color: white;
     grid-row: 3 / 4;
     font-size: 1.4rem;
+    @include font-bilo;
     p {
       line-height: 1.7;
     }
     @include responsive {
       font-size: 1.6rem;
+      grid-row: 2 / 3;
     }
   }
-  &__menu {
-    display: none;
+ 
+  &__info {
+    grid-row: 2 / 3;
     @include responsive {
-      display: flex;
-      list-style: none;
-      padding: 0;
-      justify-content: center;
-      &.main-menu {
-        .menu-item {
-          margin: 0;
-          a {
-            // padding: 
-          }
-        }
-      }
+      grid-row-start: 1;
+      grid-row-end: span 2;
+      
     }
   }
 }

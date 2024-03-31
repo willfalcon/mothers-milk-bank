@@ -6,6 +6,9 @@
   if (get_field('top_padding')) {
     $classes .= ' extra-top-padding';
   }
+  if (get_field('bottom_padding')) {
+    $classes .= ' extra-bottom-padding';
+  }
   if (array_key_exists('align', $block)) {
   $classes .= ' align' . $block['align'];
 }
@@ -18,6 +21,7 @@
   <?php 
     $args = array(
       'post_type' => 'story',
+      'posts_per_page' => 3 
     );
     $query = new WP_Query($args);
   ?>

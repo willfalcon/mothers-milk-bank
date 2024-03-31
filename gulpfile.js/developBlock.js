@@ -9,7 +9,7 @@ function refresh() {
   return src('index.php').pipe(livereload());
 }
 
-exports.developBlock = function developBlock() {
+module.exports = function developBlock() {
   if (!argv.block) {
     console.log('Must set option --block');
     return src('index.php');

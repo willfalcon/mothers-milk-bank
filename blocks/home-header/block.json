@@ -3,6 +3,7 @@
   "title": "Homepage header",
   "description": "Header block for homepage.",
   "style": "home-header-style",
+  "editorStyle": "home-header-editor-style",
   "category": "cdhq",
   "acf": {
     "mode": "auto",

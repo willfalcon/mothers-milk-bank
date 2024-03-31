@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "js-cookie": "^3.0.5",
     "normalize.css": "^8.0.1",
     "swiper": "^11.0.7",
     "viewport-size": "^0.0.1"

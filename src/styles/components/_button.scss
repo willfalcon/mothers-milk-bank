@@ -1,15 +1,24 @@
 .button {
-  background: var(--mmb-light);
-  color: var(--mmb-pink);
+  background: var(--mmb-milk-light);
+  color: var(--mmb-baby-pink);
   @include font-serif($fw-bold);
   font-size: 2rem;
   padding: 1rem;
   text-align: center;
   text-decoration: none;
-  border-radius: 4px 20px 14px 26px;
+  border-radius: $radii-small;
   @include responsive {
-    border-radius: 6px 36px 22px 51.5px;
+    border-radius: $radii-medium;
     font-size: 2.4rem;
     padding: 2rem 4rem;
+  }
+  &--small {
+    @extend .button;
+    font-size: 1.6rem;
+    padding: .8rem;
+    @include responsive {
+      font-size: 2rem;
+      padding: 1rem 2rem;
+    }
   }
 }

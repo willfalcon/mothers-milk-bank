@@ -30,10 +30,10 @@
 
 body {
   @include grid {
-    // display: grid;
-    // min-height: 100vh;
-    // grid-template-rows: auto 1fr auto;
-    // grid-template-columns: 100%;
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%; 
     &.admin-bar {
       // min-height: calc(100vh - 46px);
       @include responsive {

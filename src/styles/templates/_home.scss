@@ -1,0 +1,39 @@
+.blog {
+  .layout-columns {
+    margin-bottom: 4rem;
+  }
+}
+
+.layout-columns {
+  display: flex;
+  @include content-width;
+  flex-wrap: wrap;
+  align-items: normal;
+  gap: 2em;
+  @include responsive {
+    flex-wrap: nowrap;
+  }
+}
+
+.layout-column {
+  flex-grow: 1;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  @include responsive {
+    flex-grow: 0
+  }
+}
+.layout-column-main {
+  flex-basis: 66.66%;
+  @include responsive {
+    order: 2;
+  }
+}
+
+.layout-column-aside {
+  flex-basis: 33.33%;
+  @include responsive {
+    order: 1;
+  }
+}

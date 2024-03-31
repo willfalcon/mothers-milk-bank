@@ -38,10 +38,10 @@
   
   .main-menu {
     .menu-item {
-      background: var(--mmb-light);
-      color: var(--mmb-pink);
+      background: var(--mmb-milk-light);
+      color: var(--mmb-baby-pink);
       @include font-serif($fw-bold); 
-      border-radius: 4px 20px 14px 26px;
+      border-radius: $radii-small;
       span:first-child::after {
         content: ' ';
       }
@@ -50,7 +50,7 @@
 
   .admin-menu {
     .menu-item {
-      color: var(--mmb-light);
+      color: var(--mmb-milk-light);
       text-transform: uppercase;
       font-weight: $fw-bold;
     }

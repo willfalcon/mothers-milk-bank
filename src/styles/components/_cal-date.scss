@@ -1,0 +1,26 @@
+.cal-date {
+  width: 64px;
+  height: 64px;
+  text-align: center;
+  background: white;
+  border-bottom: 2px solid var(--mmb-baby-blue);
+  display: block;
+   &__month {
+    background: var(--mmb-baby-blue);
+    color: white;
+    text-transform: uppercase;
+    
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+  }
+  
+  &__date {
+    color: var(--mmb-blue);
+    font-size: 2.6rem;
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+   }
+    
+}

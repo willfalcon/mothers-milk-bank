@@ -1,0 +1,14 @@
+.home-header {
+  .waves {
+    pointer-events: none;
+  }
+  margin-bottom: 100px;
+}
+
+.wp-block[data-type="cdhq/home-header"],
+.wp-block[data-type="cdhq/page-header"] {
+  + * {
+    z-index: 3; 
+    position: relative;
+  }
+}

@@ -1,0 +1,52 @@
+ .footer-nav {
+   
+    &__menu {
+     display: none;
+    @include responsive {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      justify-content: center;
+      gap: 2rem;
+      &.main-menu {
+        .menu-item {
+          margin: 0;
+          border-radius: $radii-medium;
+          border: 1px solid var(--mmb-baby-blue-dull);
+          a {
+            text-decoration: none;
+            text-align: center;
+            padding: 1rem 3.5rem;
+            display: block;
+            line-height: 1;
+          }
+          .small-label {
+            color: var(--mmb-baby-blue-dull);
+            display: block;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1.2rem;
+          }
+          .large-label {
+            color: var(--mmb-light-pink);
+            display: block;
+            @include font-serif;
+            text-transform: lowercase;
+            font-size: 3.6rem;
+          }
+        }
+      }
+      &.admin-menu {
+        .menu-item {
+          margin-left: 0;
+        }
+        a {
+          text-decoration: none;
+          text-transform: uppercase;
+          color: var(--mmb-milk-light);
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "cdhq/sub-pages",
+  "title": "Child Pages",
+  "description": "Sidebar menu of child pages.",
+  "style": "sub-pages-style",
+  "editorStyle": "sub-pages-editor-style",
+  "category": "cdhq",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "sub-pages.php"
+  },
+  "icon": "embed-photo"
+}

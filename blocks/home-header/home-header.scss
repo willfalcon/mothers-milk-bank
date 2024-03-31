@@ -4,49 +4,10 @@
   position: relative;
   // margin-top: 6.25% !important;
   padding-top: 3rem !important;
-  
-  &__image-wrapper {
-    border-radius: 50%;
-    overflow: hidden;
-    width: 250px;
-    height: 250px;
-    margin-left: auto;
-    margin-right: auto;
-  }
 
-  &__content {
-    padding: 1rem;
-  }
-  &__text {
-    color: var(--mmb-light);
-    @include font-serif; 
-    text-align: center;
-    font-size: 2rem;
-    text-wrap: pretty;
-  }
-
-  &__buttons {
-    list-style: none;
-    padding: 0 2rem;
-  }
-  &__button {
-    padding: 0;
-    margin-bottom: 1rem;
-    margin-left: 0;
-    display: block;
-    .button {
-      display: block;
-    }
-  }
-
-  .waves {
+  &:not(.overlap) {
+    margin-bottom: 10rem !important;
     
-    fill: var(--mmb-pink);
-    // width: 100%;
-    position: absolute;
-    top: 100%;
-    margin-top: -1px; 
-    left: 0;
   }
 
   @include responsive {
@@ -55,23 +16,80 @@
     padding-left: 2rem !important;
     padding-right: 2rem !important;
     padding-bottom: 2rem !important;
-    gap: 3rem;
-    &__image-wrapper {
+    justify-content: center;
+    gap: 3rem; 
+  }
+  
+  &__image-wrapper {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 250px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    @include responsive {
       width: 350px;
       height: 350px;
       flex: 0 0 350px;
+      margin-left: 0;
+      margin-right: 0;
     }
+  }
 
-    &__buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      padding: 0;
+  &__content {
+    padding: 1rem;
+    @include responsive {
+      flex: 0 1 700px;
     }
-    &__text {
+  }
+  
+  &__title {
+    color: white;
+  }
+
+  &__text {
+    color: var(--mmb-milk-light);
+    @include font-serif; 
+    text-align: center;
+    font-size: 2rem;
+    text-wrap: pretty;
+    @include responsive {
       font-size: 3rem;
       text-align: left;
-      padding: 0 2rem;
+      // padding: 0 2rem;
     }
+  }
+
+  &__buttons {
+    list-style: none;
+    padding: 0 2rem;
+    @include responsive {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding: 0;
+    }
+  }
+  &__button {
+    padding: 0;
+    margin-bottom: 1rem;
+    margin-left: 0;
+    display: block; 
+    .button {
+      display: block;
+    }
+    @include responsive {}
+  }
+
+  .waves {
+    
+    fill: var(--mmb-baby-pink);
+    // width: 100%;
+    position: absolute;
+    top: 100%;
+    margin-top: -1px; 
+    left: 0;
+    z-index: 2;
+    @include responsive {}
   }
 }

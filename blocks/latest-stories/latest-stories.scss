@@ -10,6 +10,12 @@
       padding-top: 7rem;
     }
   }
+  &.extra-bottom-padding {
+    padding-bottom: 3rem;
+    @include responsive {
+      padding-bottom: 7rem;
+    }
+  }
 
   
   @include responsive {
@@ -54,7 +60,7 @@
     }
     &__header {
       background: var(--mmb-baby-blue);
-      color: var(--mmb-light);
+      color: var(--mmb-milk-light);
       padding: 2rem 1rem;
       text-align: center;
       border-radius: 8px 8px 0px 0px;
@@ -67,7 +73,7 @@
       width: 50px;
       height: 50px;
       background: var(--mmb-baby-blue-dull);
-      color: var(--mmb-light);
+      color: var(--mmb-milk-light);
       border-radius: 50%;
       font-size: 4.8rem;
       @include font-serif($fw-bold);
@@ -92,7 +98,7 @@
     &__arrow {
       width: 40px;
       height: 40px;
-      background: var(--mmb-pink);
+      background: var(--mmb-baby-pink);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -102,7 +108,7 @@
       transform: translateY(50%);
 
       svg {
-        color: var(--mmb-light);
+        color: var(--mmb-milk-light);
       }
     }
   }

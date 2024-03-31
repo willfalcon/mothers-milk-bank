@@ -81,12 +81,14 @@ include_once('inc/api.php');
  * array_find_index
  */
 include_once('inc/utils.php');
+include_once('inc/widgets.php');
 
 /**
  * add color classes in head
  */
 include_once('inc/colors.php');
 
+include_once('inc/alert.php');
 
 
 /**
@@ -151,3 +153,38 @@ function cdhq_login_logo_url() {
 }
 add_filter( 'login_headerurl', 'cdhq_login_logo_url' );
 
+
+
+/**
+ * Set color palette options on acf color fields
+ */
+function acf_load_color_field_choices( $field ) {
+  // reset choices
+  $field['choices'] = array();
+  // if has rows
+  $field['choices'][''] = '';
+  if( have_rows('color_palette', 'option') ) {
+      // while has rows
+      while( have_rows('color_palette', 'option') ) {
+          // instantiate row
+          the_row();
+          // vars
+          $color = get_sub_field('color');
+          $label = get_sub_field('label');
+          // append to choices
+          $field['choices'][ $color ] = $label;   
+      }
+  }
+  // return the field
+  return $field;
+}
+
+add_filter('acf/load_field/name=background_color', 'acf_load_color_field_choices');
+
+
+function add_events_to_home_query( $query ) {
+  if ( is_home() && $query->is_main_query() )
+  $query->set( 'post_type', array( 'post', 'event' ) );
+return $query;
+}
+add_action( 'pre_get_posts', 'add_events_to_home_query' );

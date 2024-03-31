@@ -1,6 +1,9 @@
     </div>
     
     <footer class="footer">
+
+      <?php get_template_part('parts/waves'); ?>
+      
       <div class="footer-logo">
         <img class="footer-logo__logo" src="<?php echo get_template_directory_uri() . '/dist/mmbm_light.png'; ?>" alt="<?php bloginfo('name'); ?>" />  
       </div>
@@ -26,21 +29,21 @@
           wp_nav_menu( 
             array(
               'theme_location' => 'main_menu',
-              'menu_class' => 'footer__menu main-menu',
+              'menu_class' => 'footer-nav__menu main-menu',
               'container' => null,
             )
           );
           wp_nav_menu( 
             array(
               'theme_location' => 'admin_menu',
-              'menu_class' => 'footer__menu admin-menu',
+              'menu_class' => 'footer-nav__menu admin-menu',
               'container' => null,
             )
           );
         ?>
       </div>
+    </div>
 
-    </footer> 
     
     <?php wp_footer(); ?>
   </body>

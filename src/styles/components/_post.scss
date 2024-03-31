@@ -1,0 +1,52 @@
+.blog .page-title {
+  @include content-width(1000px);
+}
+.stories-list {
+  @include content-width (1000px);
+  .post {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--mmb-blue);
+    display: block;
+    padding-bottom: 1rem;
+    &__title {
+      color: var(--mmb-baby-blue);
+    }
+    &__date {
+      color: var(--mmb-pink);
+    }
+
+    &__read-more {
+     display: inline-block; 
+    }
+    &--event {
+      display: grid;
+      grid-template-columns: 64px 1fr auto;
+      align-items: center;
+      gap: 1rem;
+      .post {
+        &__cal {
+          grid-column: 1 / 2;
+          grid-row: 1 / 4;
+        }
+        &__location {
+          grid-column: 2 / 3;
+          grid-row: 2 / 3;
+        }
+        &__time {
+          grid-column: 2 / 3;
+          grid-row: 3 / 4;
+        }
+        &__title {
+          margin: 0;
+          grid-column: 2 / 3;
+          grid-row: 1 / 2;
+        }
+        &__read-more {
+          grid-column: 3 / 4;
+          grid-row: 2 / 4;
+        }
+      }
+    }
+  }
+}

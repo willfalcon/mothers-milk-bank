@@ -1,0 +1,27 @@
+{
+  "name": "cdhq/page-header",
+  "title": "Page Header",
+  "description": "Header block for pages.",
+  "style": "home-header-style",
+  "editorStyle": "home-header-editor-style",
+  "category": "cdhq",
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "page-header.php"
+  },
+  "supports": {
+    "align": true,
+    "color": {
+      "background": true,
+      "text": false
+    }
+  },
+  "attributes": {
+    "backgroundColor": {
+      "type": "string",
+      "default": "pink"
+    }
+  },
+  "align": "full",
+  "icon": "embed-photo"
+}

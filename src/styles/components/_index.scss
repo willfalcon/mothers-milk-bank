@@ -4,5 +4,12 @@
 @include responsive {
   @import 'desktop-nav';
 }
+@import 'alternate-header';
 @import 'button';
 @import 'footer';
+@import 'footer-nav';
+@import 'alert';
+@import 'page-title';
+@import 'post';
+@import 'pagination';
+@import 'cal-date';

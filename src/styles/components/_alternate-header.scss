@@ -1,0 +1,26 @@
+@include responsive {
+  .header {
+    &--alternate {
+      background: var(--mmb-blue);
+      .header-nav {
+        .main-menu {
+          .menu-item {
+            border-color: var(--mmb-milk-light);
+            color: var(--mmb-milk-light);
+          }
+          span {
+            &.small-label {
+              color: var(--mmb-milk-light);
+            }
+            &.large-label {
+              color: var(--mmb-light-pink);
+            }
+          }
+        }
+      }
+      .waves {
+        display: none;
+      }
+    }
+  }
+}

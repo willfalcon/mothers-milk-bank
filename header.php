@@ -11,7 +11,7 @@
 
   <body <?php body_class(); ?> data-root="<?php bloginfo('url'); ?>">
     <?php wp_body_open(); ?>
-
+    
     <header class="header" id="site-header">
       <a class="header-logo" href="<?php bloginfo('url'); ?>">
         <img class="header-logo__logo" src="<?php echo get_template_directory_uri() . '/dist/ms-milkbank_logo.png'; ?>" alt="<?php bloginfo('name'); ?>" />  
