@@ -1,0 +1,66 @@
+.story {
+  background: white;
+  border-radius: 8px;
+  border: 1px solid var(--mmb-baby-blue-dull);
+  display: flex;
+  flex-direction: column;
+
+  &__link {
+    text-decoration: none;
+    display: block;
+  }
+  &__header {
+    background: var(--mmb-baby-blue);
+    color: var(--mmb-milk-light);
+    padding: 2rem 1rem;
+    text-align: center;
+    border-radius: 8px 8px 0px 0px;
+  }
+  &__heading {
+    @include font-serif($fw-bold);
+    margin: 0;
+  }
+  .quote {
+    width: 50px;
+    height: 50px;
+    background: var(--mmb-baby-blue-dull);
+    color: var(--mmb-milk-light);
+    border-radius: 50%;
+    font-size: 4.8rem;
+    @include font-serif($fw-bold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    span {
+      transform: translateY(25%);
+    }
+  } 
+  &__excerpt {
+    color: var(--mmb-baby-pink-medium);
+    text-align: center;
+    @include font-bilo($fw-bold);
+    padding: 0 1.5rem;
+    line-height: 2;
+    text-wrap: pretty;
+    flex-grow: 1;
+  }
+  &__arrow {
+    width: 40px;
+    height: 40px;
+    background: var(--mmb-baby-pink);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(50%);
+
+    svg {
+      color: var(--mmb-milk-light);
+    }
+  }
+}

@@ -1,7 +1,7 @@
 .blog .page-title {
   @include content-width(1000px);
 }
-.stories-list {
+.post-list { 
   @include content-width (1000px);
   .post {
     color: inherit;

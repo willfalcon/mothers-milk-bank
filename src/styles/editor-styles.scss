@@ -1,0 +1,21 @@
+.wp-block {
+}
+
+.editor-styles-wrapper {
+  @import 'global';
+  @import 'components';
+
+  .story {
+    &__heading {
+      font-size: 28px;
+    }
+    .quote {
+      font-size: 48px;
+    }
+  }
+
+  .home-header {
+    // padding: 100px 20px 20px 20px;
+    gap: 30px;
+  }
+ }

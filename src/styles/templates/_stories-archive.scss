@@ -1,0 +1,12 @@
+.stories-list {
+  @include responsive {
+    transform: none;
+    position: static;
+    height: auto;
+    box-sizing: border-box;
+    @include content-width($wide-width);
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 4rem;
+  }
+}

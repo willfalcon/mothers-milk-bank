@@ -1,7 +1,9 @@
 .button {
   background: var(--mmb-milk-light);
   color: var(--mmb-baby-pink);
-  @include font-serif($fw-bold);
+  .page-content & {
+    @include font-serif($fw-bold);
+  }
   font-size: 2rem;
   padding: 1rem;
   text-align: center;

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "images": "imagemin src/images/* --out-dir=dist",
-    "dev": "gulp watch"
+    "dev": "gulp watch",
+    "build": "gulp"
   },
   "keywords": [],
   "author": "",

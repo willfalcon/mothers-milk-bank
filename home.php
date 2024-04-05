@@ -23,7 +23,7 @@
 <?php if ( have_posts() ) : ?>
   <div class="layout-columns">
     <main class="layout-column layout-column-main">
-      <div class="stories-list">
+      <div class="post-list">
         <?php 
           while ( have_posts() ) : the_post();
             if (get_post_type() == 'event') {

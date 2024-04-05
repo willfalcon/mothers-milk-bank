@@ -1,8 +1,45 @@
+@import '../block-imports';
 .home-header {
+  @include responsive {
+    padding-top: 10px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-bottom: 20px !important;
+    justify-content: center;
+    gap: 30px; 
+  }
   .waves {
     pointer-events: none;
   }
   margin-bottom: 100px;
+  &__text {
+    font-size: 30px;
+  }
+  
+  &__buttons {
+    .wp-block & {
+      padding-left: 20px;
+      gap: 15px;
+    }
+  }
+  &__button {
+    .wp-block & {
+      margin-top: 0;
+      margin-left: 0;
+    }
+  }
+  
+}
+
+.button {
+  .editor-styles-wrapper .wp-block & {
+    @include font-serif($fw-bold);
+
+    @include responsive {  
+      padding: 15px 35px;
+      font-size: 24px;
+    }
+  }
 }
 
 .wp-block[data-type="cdhq/home-header"],

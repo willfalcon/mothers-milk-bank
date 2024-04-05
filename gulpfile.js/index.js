@@ -11,10 +11,15 @@ function refresh(cb) {
   return src('index.php').pipe(livereload());
 }
 
+const bundleStyles = async () => {
+  await styleScript('src/styles/styles.scss', 'dist/', true);
+  await styleScript('src/styles/editor-styles.scss', 'dist/', true);
+};
+
 function watchTask(cb) {
   copyNormalize();
   livereload.listen();
-  watch(['src/styles/**/*.scss'], () => styleScript('src/styles/styles.scss', 'dist/', true));
+  watch(['src/styles/**/*.scss'], bundleStyles);
   // watch(['blocks/**/*.scss'], devBlockStyles);
   watch(['src/scripts/**/*.js'], () => jsScript('src/scripts/index.js', 'dist/', true));
   // watch(['blocks/**/*.js'], blockScripts);
@@ -26,6 +31,7 @@ function watchTask(cb) {
 async function build() {
   await copyNormalize(true);
   await styleScript('src/styles/styles.scss', 'dist/');
+  await styleScript('src/styles/editor-styles.scss', 'dist/');
   await jsScript('src/scripts/index.js', 'dist/');
 }
 
