@@ -1,6 +1,6 @@
 export default function initWaves(container) {
   const waves = container.querySelectorAll('.waves');
-  console.log(waves);
+
   const wave1 = waves[0];
   const wave2 = waves[1];
   const { height } = wave1.getBoundingClientRect();

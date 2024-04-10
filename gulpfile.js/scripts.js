@@ -3,12 +3,6 @@ const named = require('vinyl-named');
 const webpack = require('webpack-stream');
 const compiler = require('webpack');
 const livereload = require('gulp-livereload');
-const scriptSrces = [
-  'src/scripts/index.js',
-  // 'src/scripts/editor.js',
-  // 'src/scripts/contact-block/contact-block-editor.js',
-  // 'src/scripts/contact-block/contact-block-options-page.js',
-];
 
 exports.jsScript = function jsScript(srcFile, destFile, dev = false) {
   const srcArray = srcFile.constructor === Array ? srcFile : [srcFile];
