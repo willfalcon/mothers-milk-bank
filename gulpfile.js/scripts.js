@@ -10,18 +10,52 @@ const scriptSrces = [
   // 'src/scripts/contact-block/contact-block-options-page.js',
 ];
 
-exports.jsScript = function jsScript(scrFile, destFile, dev = false) {
-  const srcArray = scrFile.constructor === Array ? scrFile : [scrFile];
+exports.jsScript = function jsScript(srcFile, destFile, dev = false) {
+  const srcArray = srcFile.constructor === Array ? srcFile : [srcFile];
+  console.log(`building ${dev ? 'dev' : 'prod'} script for ${srcFile}`);
+
+  if (dev) {
+    return src(srcArray)
+      .pipe(named())
+      .pipe(
+        webpack(
+          {
+            devtool: 'eval-cheap-module-source-map',
+            mode: 'development',
+            output: {
+              filename: '[name].js',
+            },
+            module: {
+              rules: [
+                {
+                  test: /\.js$/,
+                  use: {
+                    loader: 'babel-loader',
+                    options: {
+                      presets: ['@babel/preset-env'],
+                    },
+                  },
+                  exclude: /node_modules/,
+                },
+              ],
+            },
+          },
+          compiler
+        )
+      )
+      .pipe(dest(destFile))
+      .pipe(livereload());
+  }
 
   return src(srcArray)
     .pipe(named())
     .pipe(
       webpack(
         {
-          devtool: dev ? 'eval-cheap-module-source-map' : 'source-map',
-          mode: dev ? 'development' : 'production',
+          devtool: 'source-map',
+          mode: 'production',
           output: {
-            filename: dev ? '[name].js' : '[name].min.js',
+            filename: '[name].min.js',
           },
           module: {
             rules: [
@@ -41,6 +75,5 @@ exports.jsScript = function jsScript(scrFile, destFile, dev = false) {
         compiler
       )
     )
-    .pipe(dest(destFile))
-    .pipe(livereload());
+    .pipe(dest(destFile));
 };

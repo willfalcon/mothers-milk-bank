@@ -1,0 +1,30 @@
+{
+  "name": "cdhq/wave-border",
+  "title": "Wave Border",
+  "description": "Border between blocks.",
+  "style": "wave-border-style",
+  "editorStyle": "wave-border-editor-style",
+  "category": "cdhq",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "wave-border.php"
+  },
+  "supports": {
+    "align": true,
+    "color": {
+      "background": true,
+      "text": false
+    }
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "blue"
+    }
+  },
+  "icon": "embed-photo"
+}

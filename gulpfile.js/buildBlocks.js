@@ -5,14 +5,14 @@ const { styleScript } = require('./styles');
 const { jsScript } = require('./scripts');
 
 module.exports = async function buildBlocks() {
-  const dev = !!argv.D;
   const blocks = await readdir('blocks/');
-  const exclude = ['blocks.php', '_block-import.scss', '.DS_Store'];
+  const exclude = ['blocks.php', '_block-imports.scss', '.DS_Store'];
   const blockNames = blocks.filter(block => !exclude.includes(block));
 
   const externalSources = ['node_modules/swiper/swiper-bundle.css'];
 
-  styleScript(externalSources, './dist', dev);
+  styleScript(externalSources, './dist', true);
+  styleScript(externalSources, './dist');
 
   await Promise.all(
     blockNames.map(async block => {
@@ -21,37 +21,44 @@ module.exports = async function buildBlocks() {
       const styleDest = `./dist/${block}`;
       const scriptSource = `blocks/${block}/${block}.js`;
       const editorScriptSource = `blocks/${block}/${block}-editor.js`;
-      console.log(`building ${block}`);
-      await fs.access(styleSource, err => {
+      await fs.access(styleSource, async err => {
         if (err) {
-          console.log('no default styles');
+          // console.log('no default styles');
           return;
         } else {
-          return styleScript(styleSource, styleDest, dev);
+          console.log(`building ${block} styles`);
+          await styleScript(styleSource, styleDest, true);
+          await styleScript(styleSource, styleDest);
         }
       });
-      await fs.access(editorStyleSource, err => {
+      await fs.access(editorStyleSource, async err => {
         if (err) {
-          console.log('no editor styles');
+          // console.log('no editor styles');
           return;
         } else {
-          return styleScript(editorStyleSource, styleDest, dev);
+          console.log(`building ${block} editor styles`);
+          await styleScript(editorStyleSource, styleDest, true);
+          await styleScript(editorStyleSource, styleDest);
         }
       });
-      await fs.access(scriptSource, err => {
+      await fs.access(scriptSource, async err => {
         if (err) {
-          console.log('no default script');
+          // console.log('no default script');
           return;
         } else {
-          return jsScript(scriptSource, `dist/${block}/`, dev);
+          console.log(`building ${block} script`);
+          await jsScript(scriptSource, `dist/${block}/`, true);
+          await jsScript(scriptSource, `dist/${block}/`);
         }
       });
-      await fs.access(editorScriptSource, err => {
+      await fs.access(editorScriptSource, async err => {
         if (err) {
-          console.log('no editor script');
+          // console.log('no editor script');
           return;
         } else {
-          return jsScript(editorScriptSource, `dist/${block}/`, dev);
+          console.log(`building ${block} editor script`);
+          await jsScript(editorScriptSource, `dist/${block}/`, true);
+          await jsScript(editorScriptSource, `dist/${block}/`);
         }
       });
     })

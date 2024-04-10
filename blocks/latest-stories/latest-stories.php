@@ -3,18 +3,14 @@
   if (array_key_exists('backgroundColor', $block)) {
     $classes .= ' has-' . $block['backgroundColor'] . '-background-color has-background';
   }
-  if (get_field('top_padding')) {
-    $classes .= ' extra-top-padding';
-  }
-  if (get_field('bottom_padding')) {
-    $classes .= ' extra-bottom-padding';
-  }
   if (array_key_exists('align', $block)) {
   $classes .= ' align' . $block['align'];
 }
+
+$style = WP_Block_Supports::get_instance()->apply_block_supports()['style'];
 ?>
 
-<div class="<?= $classes ?> swiper">
+<div class="<?= $classes ?> swiper" style="<?= $style ?>">
 
   <h2 class="latest-stories__heading"><?php _e('Stories', 'mmb'); ?></h2>
 

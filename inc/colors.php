@@ -5,12 +5,22 @@ function cdhq_color_classes() {
 
   echo '<style>';
   foreach ($colors as $color) {
-    echo '.has-' . slugify($color['label']) . '-underline {
-      text-decoration: underline;
-      text-decoration-color: ' . $color['color'] . ';
-      text-decoration-thickness: 2px;
-      text-underline-offset: 2px;
-    }';
+    $label = slugify($color['label']);
+    $code = $color['color'];
+    echo "
+      .has-$label-underline {
+        text-decoration: underline;
+        text-decoration-color: $code;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 2px;
+      }
+      .has-$label-fill-color {
+        fill: $code;
+      }
+      .has-$label-fill-color svg {
+        fill: $code;
+      }
+    "; 
   }
   echo '</style>';
 }

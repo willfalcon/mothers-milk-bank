@@ -80,16 +80,32 @@
     }
     @include responsive {}
   }
-
-  .waves {
+  .waves-wrapper {
     
-    fill: var(--mmb-baby-pink);
     // width: 100%;
     position: absolute;
     top: 100%;
+    width: 100%;
     margin-top: -1px; 
     left: 0;
     z-index: 2;
+    overflow: hidden;
+    
     @include responsive {}
+  }
+  
+
+  .waves-wrapper-inner {
+  }
+  .waves {
+    position: absolute;
+    fill: var(--mmb-baby-pink);
+    transition: 2s;
+    &:first-child {
+      transform: rotateY(180deg);
+    }
+    &:last-child {
+      transform: translateX(100%);
+    }
   }
 }

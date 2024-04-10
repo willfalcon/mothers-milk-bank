@@ -1,0 +1,17 @@
+.wave-border {
+  position: relative;
+  height: 1px;
+}
+.page-content .wave-border.reverse {
+  margin-bottom: -5px;
+}
+.wave-border.reverse svg {
+  transform: rotate(180deg);
+  bottom: 0;
+}
+.wave-border svg {
+  position: absolute;
+  left: 0;
+  z-index: 1;
+}
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndhdmUtYm9yZGVyLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBOztBQUVFO0VBQ0U7O0FBRUY7RUFDRTtFQUNBOztBQUdKO0VBQ0U7RUFDQTtFQUNBIiwiZmlsZSI6IndhdmUtYm9yZGVyLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi53YXZlLWJvcmRlciB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgaGVpZ2h0OiAxcHg7XG4gICYucmV2ZXJzZSB7XG4gICAgLnBhZ2UtY29udGVudCAmIHtcbiAgICAgIG1hcmdpbi1ib3R0b206IC01cHg7XG4gICAgfVxuICAgIHN2ZyB7XG4gICAgICB0cmFuc2Zvcm06IHJvdGF0ZSgxODBkZWcpO1xuICAgICAgYm90dG9tOiAwO1xuICAgIH1cbiAgfVxuICBzdmcge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBsZWZ0OiAwO1xuICAgIHotaW5kZXg6IDE7XG4gIH1cbn0iXX0= */

@@ -44,7 +44,11 @@
   <?php endif; ?>
 </div>
 
-<?php get_template_part('parts/waves'); ?>
-
+  <div class="waves-wrapper">
+    <div class="waves-wrapper-inner">
+      <?php get_template_part('parts/waves'); ?>
+      <?php get_template_part('parts/waves'); ?>
+    </div>
+  </div>
 
 </div>

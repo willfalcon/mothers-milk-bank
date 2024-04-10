@@ -28,15 +28,29 @@ function watchTask(cb) {
   developBlocks();
 }
 
-async function build() {
+async function buildThemeStyles() {
   await copyNormalize(true);
+  await copyNormalize();
+  await styleScript('src/styles/styles.scss', 'dist/', true);
   await styleScript('src/styles/styles.scss', 'dist/');
+  await styleScript('src/styles/editor-styles.scss', 'dist/', true);
   await styleScript('src/styles/editor-styles.scss', 'dist/');
+}
+
+async function buildThemeScripts() {
+  await jsScript('src/scripts/index.js', 'dist/', true);
   await jsScript('src/scripts/index.js', 'dist/');
+}
+
+async function build() {
+  await buildThemeStyles();
+  await buildThemeScripts();
 }
 
 exports.watch = watchTask;
 exports.developBlock = developBlock;
 exports.buildBlocks = buildBlocks;
-exports.default = build;
+exports.default = parallel(build, buildBlocks);
 exports.developBlocks = developBlocks;
+exports.buildThemeStyles = buildThemeStyles;
+exports.buildThemeScripts = buildThemeScripts;

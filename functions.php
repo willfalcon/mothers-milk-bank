@@ -17,7 +17,7 @@ wp_enqueue_style( 'cdhq-fonts', 'https://use.typekit.net/oft8fxi.css', array(), 
   } else {
     wp_enqueue_style( 'normalize', get_template_directory_uri() . '/dist/normalize.min.css' );
     wp_enqueue_style( 'build_styles', get_template_directory_uri() . '/dist/styles.min.css', array(), $ver );
-    wp_enqueue_script( 'build_js', get_template_directory_uri() . '/dist/main.min.js', array('promise_polyfill', 'classlist_polyfill'), $ver, true );
+    wp_enqueue_script( 'build_js', get_template_directory_uri() . '/dist/index.min.js', array(), $ver, true );
   }
 }
 add_action( 'wp_enqueue_scripts', 'cdhq_theme_assets' ); 
