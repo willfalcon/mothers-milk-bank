@@ -7,9 +7,11 @@
   if (array_key_exists('backgroundColor', $block)) {
     $classes .= ' has-' . $block['backgroundColor'] . '-background-color has-background';
   }
+
+  $animation = get_field('wave');
 ?>
 
-<div class="<?= $classes ?>">
+<div class="<?= $classes ?>" data-animation="<?= $animation['animation'] ?>" data-duration="<?= $animation['duration'] ?>">
 
 <?php $image = get_field('image'); ?>
 
@@ -42,7 +44,12 @@
   <?php endif; ?>
 </div>
 
-<?php get_template_part('parts/waves'); ?>
+<div class="waves-wrapper">
+    <div class="waves-wrapper-inner">
+      <?php get_template_part('parts/waves'); ?>
+      <?php get_template_part('parts/waves'); ?>
+    </div>
+  </div>
 
 
 </div>

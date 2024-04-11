@@ -7,6 +7,24 @@
     --wp--preset--spacing--60: 7rem;
     --wp--preset--spacing--70: 8rem;
     --wp--preset--spacing--80: 9rem;
+    @include responsive(1400px) {
+      --wp--preset--spacing--20: 4rem;
+      --wp--preset--spacing--30: 5rem;
+      --wp--preset--spacing--40: 6rem;
+      --wp--preset--spacing--50: 7rem;
+      --wp--preset--spacing--60: 8rem;
+      --wp--preset--spacing--70: 9rem;
+      --wp--preset--spacing--80: 10rem;
+    }
+    @include responsive(1600px) {
+      --wp--preset--spacing--20: 5rem;
+      --wp--preset--spacing--30: 6rem;
+      --wp--preset--spacing--40: 7rem;
+      --wp--preset--spacing--50: 8rem;
+      --wp--preset--spacing--60: 9rem;
+      --wp--preset--spacing--70: 10rem;
+      --wp--preset--spacing--80: 11rem;
+    }
 }
 
 body {

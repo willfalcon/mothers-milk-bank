@@ -8,7 +8,7 @@ function cdhq_theme_assets() {
 $ver = wp_get_theme()->get('Version');
 $env = wp_get_environment_type();
 
-wp_enqueue_style( 'cdhq-fonts', 'https://use.typekit.net/oft8fxi.css', array(), null );
+
 
   if ($env == 'development' || $env == 'local') {
     wp_enqueue_style( 'normalize', get_template_directory_uri() . '/dist/normalize.css' );
@@ -20,7 +20,10 @@ wp_enqueue_style( 'cdhq-fonts', 'https://use.typekit.net/oft8fxi.css', array(), 
     wp_enqueue_script( 'build_js', get_template_directory_uri() . '/dist/index.min.js', array(), $ver, true );
   }
 }
-add_action( 'wp_enqueue_scripts', 'cdhq_theme_assets' ); 
+
+function cdhq_enqueue_fonts() {
+  wp_enqueue_style( 'cdhq-fonts', 'https://use.typekit.net/oft8fxi.css', array(), null );
+}
 
 function cdhq_enqueue_fontawesome() {
   $ver = wp_get_theme()->get('Version');
@@ -35,7 +38,9 @@ function cdhq_enqueue_fontawesome() {
     wp_enqueue_script( 'fontawesome-fontawesome', get_template_directory_uri() . '/inc/fontawesome/fontawesome.min.js', array(), $ver, true );
   }
 }
+add_action( 'wp_enqueue_scripts', 'cdhq_enqueue_fonts' ); 
 add_action( 'wp_enqueue_scripts', 'cdhq_enqueue_fontawesome' ); 
+add_action( 'wp_enqueue_scripts', 'cdhq_theme_assets' ); 
 
  function cdhq_block_editor_assets() {
   $ver = wp_get_theme()->get('Version');
@@ -43,10 +48,12 @@ add_action( 'wp_enqueue_scripts', 'cdhq_enqueue_fontawesome' );
   $is_dev = $env == 'development' || $env == 'local';
   $base = get_template_directory_uri() . '/dist';
 
-  wp_enqueue_style( 'editor_styles', $is_dev ? $base . '/editor-styles.css' : $base . '/editor-styles.min.css', array(), $ver );
+  wp_enqueue_style( 'editor-styles', $is_dev ? $base . '/editor-styles.css' : $base . '/editor-styles.min.css', array(), $ver );
+  wp_enqueue_script( 'editor-customizations', $is_dev ? $base . '/editor.js' : $base . '/editor.min.js', array('wp-blocks', 'wp-dom-ready', 'wp-plugins', 'wp-edit-post', 'wp-hooks'), $ver, true );
  }
- add_action( 'enqueue_block_editor_assets', 'cdhq_block_editor_assets' );
- add_action( 'enqueue_block_editor_assets', 'cdhq_enqueue_fontawesome' ); 
+ add_action( 'enqueue_block_assets', 'cdhq_enqueue_fonts' ); 
+ add_action( 'enqueue_block_assets', 'cdhq_enqueue_fontawesome' ); 
+ add_action( 'enqueue_block_assets', 'cdhq_block_editor_assets' );
 
 
 /**

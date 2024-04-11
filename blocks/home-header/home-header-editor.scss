@@ -22,7 +22,7 @@
       gap: 15px;
     }
   }
-  &__button {
+  &__button:not(.acf-button) {
     .wp-block & {
       margin-top: 0;
       margin-left: 0;
@@ -31,7 +31,7 @@
   
 }
 
-.button {
+.button:not(.acf-button) {
   .editor-styles-wrapper .wp-block & {
     @include font-serif($fw-bold);
 

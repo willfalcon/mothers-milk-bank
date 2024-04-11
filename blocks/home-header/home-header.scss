@@ -94,18 +94,40 @@
     @include responsive {}
   }
   
-
-  .waves-wrapper-inner {
-  }
   .waves {
-    position: absolute;
-    fill: var(--mmb-baby-pink);
-    transition: 2s;
-    &:first-child {
-      transform: rotateY(180deg);
+    fill: var(--mmb-baby-pink);  
+  }
+  
+  &[data-animation="none"] {
+    .waves {
+      &:first-child {
+        display: none;
+      }
+      &:last-child {
+        transform: none;
+      }
     }
-    &:last-child {
-      transform: translateX(100%);
+  }
+  &[data-animation="right"] {
+    .waves {
+      position: absolute;
+      &:first-child {
+        transform: rotateY(180deg);
+      }
+      &:last-child {
+        transform: translateX(100%);
+      }
+    }
+  }
+  &[data-animation="left"] {
+    .waves {
+      position: absolute;
+      &:first-child {
+        transform: translate(-100%);
+      }
+      &:last-child {
+        transform: rotateY(180deg);
+      }
     }
   }
 }

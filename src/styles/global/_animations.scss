@@ -1,0 +1,10 @@
+  .animation-up:not(.wp-block) {
+    opacity: 0;
+    transform: translateY(100%);
+    transition: 1s;
+    will-change: transition;
+    &.showed {
+      opacity: 1;
+      transform: none; 
+    }
+  }

@@ -21,7 +21,7 @@ function watchTask(cb) {
   livereload.listen();
   watch(['src/styles/**/*.scss'], bundleStyles);
   // watch(['blocks/**/*.scss'], devBlockStyles);
-  watch(['src/scripts/**/*.js'], () => jsScript('src/scripts/index.js', 'dist/', true));
+  watch(['src/scripts/**/*.js'], () => jsScript(['src/scripts/index.js', 'src/scripts/editor.js'], 'dist/', true));
   // watch(['blocks/**/*.js'], blockScripts);
   watch(['**/*.php'], refresh);
   cb();

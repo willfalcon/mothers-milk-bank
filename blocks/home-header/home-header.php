@@ -10,9 +10,11 @@
   if (array_key_exists('backgroundColor', $block)) {
     $classes .= ' has-' . $block['backgroundColor'] . '-background-color has-background';
   }
+  $animation = get_field('wave');
+
 ?>
 
-<div class="<?= $classes ?>">
+<div class="<?= $classes ?>" data-animation="<?= $animation['animation'] ?>" data-duration="<?= $animation['duration'] ?>">
 
 <?php $image = get_field('image'); ?>
 

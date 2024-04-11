@@ -4,6 +4,7 @@
   "description": "Header block for homepage.",
   "style": "home-header-style",
   "editorStyle": "home-header-editor-style",
+  "script": "home-header-script",
   "category": "cdhq",
   "acf": {
     "mode": "auto",

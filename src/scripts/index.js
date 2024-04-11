@@ -1,5 +1,5 @@
 import initAlert from './alert';
-import initWaves from './waves';
+import initAnimations from './animations';
 
 const navToggle = document.querySelector('.nav-toggle');
 const header = document.querySelector('#site-header');
@@ -10,8 +10,4 @@ navToggle.addEventListener('click', () => {
 
 initAlert();
 
-const waves = document.querySelectorAll('.waves-wrapper');
-
-waves.forEach(wave => {
-  initWaves(wave);
-});
+initAnimations();

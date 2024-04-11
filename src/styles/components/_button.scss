@@ -1,26 +1,28 @@
-.button {
-  background: var(--mmb-milk-light);
-  color: var(--mmb-baby-pink);
-  .page-content & {
-    @include font-serif($fw-bold);
-  }
-  font-size: 2rem;
-  padding: 1rem;
-  text-align: center;
-  text-decoration: none;
-  border-radius: $radii-small;
-  @include responsive {
-    border-radius: $radii-medium;
-    font-size: 2.4rem;
-    padding: 2rem 4rem;
-  }
-  &--small {
-    @extend .button;
-    font-size: 1.6rem;
-    padding: .8rem;
+:not(.acf-button) {
+  &.button { 
+    background: var(--mmb-milk-light);
+    color: var(--mmb-baby-pink);
+    .page-content & {
+      @include font-serif($fw-bold);
+    }
+    font-size: 2rem;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    border-radius: $radii-small;
     @include responsive {
-      font-size: 2rem;
-      padding: 1rem 2rem;
+      border-radius: $radii-medium;
+      font-size: 2.4rem;
+      padding: 2rem 4rem;
+    }
+    &--small {
+      @extend .button;
+      font-size: 1.6rem;
+      padding: .8rem;
+      @include responsive {
+        font-size: 2rem;
+        padding: 1rem 2rem;
+      }
     }
   }
 }
