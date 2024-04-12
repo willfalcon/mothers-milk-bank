@@ -75,8 +75,8 @@ function pp( $obj, $label = '' ) {
 
 function ea_display_post_blocks() {
 	global $post;
-	// pp( esc_html( $post->post_content ) );
-	write_log(parse_blocks($post->post_content));
+	pp( esc_html( $post->post_content ) );
+	// write_log(parse_blocks($post->post_content));
 }
 // add_action( 'wp_footer', 'ea_display_post_blocks' );
 

@@ -227,3 +227,30 @@ function remove_archive_title_prefix($prefix) {
 }
 
 add_filter('get_the_archive_title_prefix', 'remove_archive_title_prefix');
+
+
+
+/**
+ * Set block patterns
+*/
+function cdhq_block_patterns() {
+
+  register_block_pattern_category(
+    'cdhq-patterns',
+    array( 'label' => __( 'MMB Templates', 'mmb' ) )
+  );
+
+  include 'inc/patterns.php';
+
+  register_block_pattern(
+    'cdhq/page-pattern',
+    array(
+      'title' => __('Page Pattern', 'mmb'),
+      'description' => __('The block layout to use for most new pages.', 'mmb'),
+      'categories' => array('cdhq-patterns', 'featured'),
+      'content' => $page_pattern
+    )
+  );
+}
+
+add_action('init', 'cdhq_block_patterns');

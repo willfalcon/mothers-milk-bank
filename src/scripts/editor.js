@@ -12,7 +12,6 @@ function setToolbarButtonAttribute(settings, name) {
     attributes: Object.assign({}, settings.attributes, {
       animation: {
         type: 'string',
-        default: 'up',
       },
     }),
   });
