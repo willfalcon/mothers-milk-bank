@@ -48,8 +48,16 @@ add_action( 'wp_enqueue_scripts', 'cdhq_theme_assets' );
   $is_dev = $env == 'development' || $env == 'local';
   $base = get_template_directory_uri() . '/dist';
 
-  wp_enqueue_style( 'editor-styles', $is_dev ? $base . '/editor-styles.css' : $base . '/editor-styles.min.css', array(), $ver );
-  wp_enqueue_script( 'editor-customizations', $is_dev ? $base . '/editor.js' : $base . '/editor.min.js', array('wp-blocks', 'wp-dom-ready', 'wp-plugins', 'wp-edit-post', 'wp-hooks'), $ver, true );
+
+  $current_screen = false;
+  if (function_exists('get_current_screen')) {
+    $current_screen = get_current_screen();
+  }
+	
+	if ($current_screen && $current_screen->id != 'widgets') {
+    wp_enqueue_style( 'editor-styles', $is_dev ? $base . '/editor-styles.css' : $base . '/editor-styles.min.css', array(), $ver );
+    wp_enqueue_script( 'editor-customizations', $is_dev ? $base . '/editor.js' : $base . '/editor.min.js', array('wp-blocks', 'wp-dom-ready', 'wp-plugins', 'wp-edit-post', 'wp-hooks'), $ver, true );
+  }
  }
  add_action( 'enqueue_block_assets', 'cdhq_enqueue_fonts' ); 
  add_action( 'enqueue_block_assets', 'cdhq_enqueue_fontawesome' ); 
