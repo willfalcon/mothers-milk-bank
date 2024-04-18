@@ -6,6 +6,7 @@
   }
   if (array_key_exists('backgroundColor', $block)) {
     $classes .= ' has-' . $block['backgroundColor'] . '-background-color has-background';
+    $classes .= ' has-' . $block['backgroundColor'] . '-fill-color has-fill';
   }
 
   $animation = get_field('wave');

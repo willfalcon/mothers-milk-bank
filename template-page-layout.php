@@ -26,7 +26,7 @@
       </main>
     </div>
     
-    <div style="height:200px;" aria-hidden="true"></div>
+    <?php get_template_part('parts/spacer'); ?>
 
   </div>
 <?php endwhile; endif; ?>

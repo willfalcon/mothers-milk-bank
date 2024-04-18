@@ -18,6 +18,9 @@
   </ul>
 <?php endif; ?>
 
-<?php get_template_part('parts/pagination'); ?>
+<?php 
+  get_template_part('parts/pagination'); 
+  get_template_part('parts/spacer'); 
+?>
 
 <?php get_footer(); ?>

@@ -22,7 +22,8 @@ $style = WP_Block_Supports::get_instance()->apply_block_supports()['style'];
   <?php 
     $args = array(
       'post_type' => 'story',
-      'posts_per_page' => 3 
+      'posts_per_page' => 3,
+      'orderby' => 'rand'
     );
     $query = new WP_Query($args);
   ?>

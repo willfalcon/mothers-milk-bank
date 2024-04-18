@@ -63,6 +63,6 @@ p {
 
 .page-content {
   p, a, li {
-    @include font-bilo;
+    font-family: $font-bilo;
   }
 }

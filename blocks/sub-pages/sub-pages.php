@@ -5,7 +5,7 @@
   $parent;
   $parent_id;
   
-  if ($post->post_parent) {
+  if ($post && $post->post_parent) {
     
     $link = get_the_permalink($post->post_parent);
     $parent = "<a class=\"sub-pages__parent-title\" href=\"$link\">";
@@ -19,7 +19,11 @@
     $parent = '<span class="sub-pages__parent-title">';
     $parent .= $parent_title;
     $parent  .= '</span>';
-    $parent_id = $post->ID;
+    if ($post) {
+      $parent_id = $post->ID;
+    } else {
+      $parent_id = get_option('page_on_front');
+    }
     
   }
   

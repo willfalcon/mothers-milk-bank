@@ -1,0 +1,1 @@
+<div style="height:8vw;" aria-hidden="true"></div>

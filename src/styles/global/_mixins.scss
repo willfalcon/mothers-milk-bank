@@ -22,20 +22,23 @@
 	}
 }
 
+$font: gineso, sans-serif;
 @mixin font($weight: $fw-regular, $style: normal) {
-	font-family: gineso, sans-serif;
+	font-family: $font;
 	font-weight: $weight;
 	font-style: $style;
 }
 
+$font-bilo: bilo, sans-serif;
 @mixin font-bilo($weight: $fw-regular, $style: normal) {
-	font-family: bilo, sans-serif;
+	font-family: $font-bilo;
 	font-weight: $weight;
 	font-style: $style;
 }
 
+$font-serif: adonis-web, serif;
 @mixin font-serif($weight: $fw-regular, $style: normal) {
-	font-family: adonis-web, serif;
+	font-family: $font-serif;
 	font-weight: $weight;
 	font-style: $style;
 }

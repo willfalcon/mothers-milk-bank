@@ -30,6 +30,8 @@
     <?php get_sidebar('news'); ?>
   </div>
 
+  <?php get_template_part('parts/spacer'); ?>
+
 <?php endwhile; endif; ?>
 
 <?php get_footer(); ?>

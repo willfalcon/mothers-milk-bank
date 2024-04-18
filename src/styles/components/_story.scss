@@ -4,7 +4,10 @@
   border: 1px solid var(--mmb-baby-blue-dull);
   display: flex;
   flex-direction: column;
-
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
   &__link {
     text-decoration: none;
     display: block;

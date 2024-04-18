@@ -96,6 +96,7 @@
   
   .waves {
     fill: var(--mmb-baby-pink);  
+    fill: inherit;
   }
   
   &[data-animation="none"] {

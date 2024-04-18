@@ -262,3 +262,62 @@ function cdhq_block_patterns() {
 }
 
 add_action('init', 'cdhq_block_patterns');
+
+
+/**
+ * Excerpt length and more tags
+ */
+
+function custom_excerpt_length( $length ) {
+  return 30;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+function cdhq_excerpt_more( $more ) {
+  /**
+    * Filters the excerpt "read more" string.
+    *
+    * @param string $more "Read more" excerpt string.
+    * @return string (Maybe) modified "read more" excerpt string.
+  */
+  return '...';
+}
+add_filter( 'excerpt_more', 'cdhq_excerpt_more' );
+
+
+/**
+ * enqueue block assets for 404 page
+ */
+
+function cdhq_enqueue_404_assets() {
+  $ver = wp_get_theme()->get('Version');
+  $env = wp_get_environment_type();
+  $dev = $env == 'development' || $env == 'local';
+  if (is_404()) {
+    wp_enqueue_style('home-header-style');
+    wp_enqueue_style('latest-stories-style');
+    wp_enqueue_script('latest-stories-script');
+  }
+}
+
+add_action( 'wp_enqueue_scripts', 'cdhq_enqueue_404_assets' ); 
+
+if (!function_exists('check_blocks')) {
+	function check_blocks($blocks, $search_block) {
+		if (!is_array($blocks)) {
+			$blocks = parse_blocks($blocks);
+		}
+		foreach($blocks as $block) {
+			if ($block['blockName'] == $search_block) {
+				return $block;
+			} 
+			if ($block['innerBlocks']) {
+				$returned = check_blocks($block['innerBlocks'], $search_block);
+				if ($returned) {
+					return $returned;
+				}
+			}
+		}
+		return null;
+	}
+}
