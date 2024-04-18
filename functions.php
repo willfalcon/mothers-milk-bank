@@ -212,8 +212,29 @@ function acf_load_color_field_choices( $field ) {
   // return the field
   return $field;
 }
-
 add_filter('acf/load_field/name=background_color', 'acf_load_color_field_choices');
+
+function acf_load_color_slug_field_choices( $field ) {
+  // reset choices
+  $field['choices'] = array();
+  // if has rows
+  $field['choices'][''] = '';
+  if( have_rows('color_palette', 'option') ) {
+    // while has rows
+    while( have_rows('color_palette', 'option') ) {
+      // instantiate row
+      the_row();
+      // vars
+      $color = slugify(get_sub_field('label'));
+      $label = get_sub_field('label');
+      // append to choices
+      $field['choices'][ $color ] = $label;   
+    }
+  }
+  // return the field
+  return $field;
+}
+add_filter('acf/load_field/name=header_background_color', 'acf_load_color_slug_field_choices');
 
 
 function cdhq_modify_posts_query( $query ) {

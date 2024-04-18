@@ -1,7 +1,11 @@
 <?php 
-
-  $classes = 'home-header has-pink-background-color alignfull';
-
+  $color = get_field('header_background_color');
+  
+  $classes = 'home-header alignfull';
+  if ($color) {
+    $classes .= " has-{$color}-background-color";
+    $classes .= " has-{$color}-fill-color";
+  }
   $animation = get_field('wave');
 ?>
 

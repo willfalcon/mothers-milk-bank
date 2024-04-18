@@ -8,7 +8,7 @@
   if ($post && $post->post_parent) {
     
     $link = get_the_permalink($post->post_parent);
-    $parent = "<a class=\"sub-pages__parent-title\" href=\"$link\">";
+    $parent = "<a class=\"sidebar-menu__parent-title\" href=\"$link\">";
     $parent .= get_the_title($post->post_parent);
     $parent .= '</a>';
 
@@ -16,7 +16,7 @@
 
   } else {
     $parent_title = get_the_title();
-    $parent = '<span class="sub-pages__parent-title">';
+    $parent = '<span class="sidebar-menu__parent-title">';
     $parent .= $parent_title;
     $parent  .= '</span>';
     if ($post) {
