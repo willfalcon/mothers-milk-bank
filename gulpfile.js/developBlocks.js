@@ -26,10 +26,10 @@ module.exports = async function developBlocks() {
     const editorStyleWatch = `blocks/${block}/**/*-editor.scss`;
     const editorStyleSource = `blocks/${block}/${block}-editor.scss`;
     const styleDest = `./dist/${block}`;
-    const scriptSource = argv.block ? `blocks/${argv.block}/${argv.block}.js` : 'blocks/**/*.js';
-    const scriptWatch = argv.block ? `blocks/${argv.block}/**/*.js` : 'blocks/**/*.js';
-    const editorScriptSource = argv.block ? `blocks/${argv.block}/${argv.block}-editor.js` : 'blocks/**/*.js';
-    const editorScriptWatch = argv.block ? `blocks/${argv.block}/**/*-editor.js` : 'blocks/**/*.js';
+    const scriptSource = block ? `blocks/${block}/${block}.js` : 'blocks/**/*.js';
+    const scriptWatch = block ? `blocks/${block}/**/*.js` : 'blocks/**/*.js';
+    const editorScriptSource = block ? `blocks/${block}/${block}-editor.js` : 'blocks/**/*.js';
+    const editorScriptWatch = block ? `blocks/${block}/**/*-editor.js` : 'blocks/**/*.js';
 
     watch(styleWatch, () => styleScript(styleSource, styleDest, true));
     watch(editorStyleWatch, () => styleScript(editorStyleSource, styleDest, true));

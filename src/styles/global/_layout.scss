@@ -35,10 +35,7 @@ body {
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 100%; 
     &.admin-bar {
-      // min-height: calc(100vh - 46px);
-      @include responsive {
-        // min-height: calc(100vh - 32px);
-      }
+      // grid-template-rows: 
     }
   }
 }

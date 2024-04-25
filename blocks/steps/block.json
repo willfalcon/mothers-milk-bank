@@ -1,0 +1,25 @@
+{
+  "name": "cdhq/steps",
+  "title": "Donation Steps",
+  "description": "Slider of steps to donate.",
+  "style": "steps-style",
+  "script": "steps-script",
+  "dependencies": {
+    "style": ["swiper-styles"]
+  },
+  "category": "cdhq",
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "steps.php"
+  },
+  "supports": {
+    "align": true
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "wide"
+    }
+  },
+  "icon": "image-flip-horizontal"
+}
