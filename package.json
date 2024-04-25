@@ -12,8 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@turf/distance": "^6.5.0",
     "classnames": "^2.5.1",
     "js-cookie": "^3.0.5",
+    "libphonenumber-js": "^1.10.61",
     "normalize.css": "^8.0.1",
     "swiper": "^11.0.7",
     "viewport-size": "^0.0.1"

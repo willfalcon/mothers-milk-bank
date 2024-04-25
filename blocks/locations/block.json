@@ -1,0 +1,20 @@
+{
+  "name": "cdhq/locations",
+  "title": "Locations",
+  "description": "Map of MMB Locations.",
+  "style": "locations-style",
+  "script": "locations-script",
+  "dependencies": {
+    "style": ["mapbox-gl-style"],
+    "script": ["mapbox-gl-script"]
+  },
+  "category": "cdhq",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "locations.php"
+  },
+  "supports": {
+    "align": true
+  },
+  "icon": "location-alt"
+}

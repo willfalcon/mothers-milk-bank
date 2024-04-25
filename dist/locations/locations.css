@@ -1,0 +1,20 @@
+.locations {
+  height: 500px;
+}
+
+.map-location-data {
+  width: 300px;
+  padding: 0 1.6rem;
+}
+.map-location-data h2 {
+  font-size: 2rem;
+}
+.map-location-data h3 {
+  font-size: 1.6rem;
+}
+
+.map-location-popup h2 {
+  font-size: 2rem;
+  margin: 1rem 0 0;
+}
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxvY2F0aW9ucy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7OztBQUdGO0VBQ0U7RUFDQTs7QUFDQTtFQUNFOztBQUVGO0VBQ0U7OztBQUtGO0VBQ0U7RUFDQSIsImZpbGUiOiJsb2NhdGlvbnMuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmxvY2F0aW9ucyB7XG4gIGhlaWdodDogNTAwcHg7IFxufVxuXG4ubWFwLWxvY2F0aW9uLWRhdGEge1xuICB3aWR0aDogMzAwcHg7XG4gIHBhZGRpbmc6IDAgMS42cmVtO1xuICBoMiB7XG4gICAgZm9udC1zaXplOiAycmVtO1xuICB9XG4gIGgzIHtcbiAgICBmb250LXNpemU6IDEuNnJlbTtcbiAgfVxufVxuXG4ubWFwLWxvY2F0aW9uLXBvcHVwIHtcbiAgaDIge1xuICAgIGZvbnQtc2l6ZTogMnJlbTtcbiAgICBtYXJnaW46IDFyZW0gMCAwO1xuICB9XG59Il19 */

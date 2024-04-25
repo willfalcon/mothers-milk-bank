@@ -22,6 +22,10 @@ $baby-blue-dull-rgb: 115,201,207;
 $teal-light: #6FC1C7;
 $teal-light-rgb: 111,193,199;
 
+// Lightest Baby Blue
+$lightest-baby-blue: #EEFBFC;
+$lightest-baby-blue-rgb: 238,251,252;
+
 // Milk Light
 $milk-light: #FCFBF0;;
 $milk-light-rgb: 252,251,240;
@@ -66,6 +70,9 @@ $purple-rgb: $baby-pink-medium-rgb;
   // Baby Blue Dull
   --mmb-baby-blue-dull: #{$baby-blue-dull};
   --mmb-baby-blue-dull-rgb: #{$baby-blue-dull-rgb};
+  // Lightest Baby Blue
+  --mmb-lightest-baby-blue: #{$lightest-baby-blue};
+  --mmb-lightest-baby-blue-rgb: #{$lightest-baby-blue-rgb};
   // Milk Light
   --mmb-milk-light: #{$milk-light};
   --mmb-milk-light-rgb: #{milk-light-rgb};
