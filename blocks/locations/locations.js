@@ -30,7 +30,7 @@ async function initMap() {
   });
 
   // Add map controls
-  map.addControl(new mapboxgl.GeolocateControl());
+  // map.addControl(new mapboxgl.GeolocateControl());
   map.addControl(new mapboxgl.ScaleControl());
 
   // Temporary marker and control refs
@@ -69,9 +69,16 @@ async function initMap() {
     const closest = getClosestLocation(locations, coords);
 
     // 3. move map to show both locations
-    const bound1 = coords;
-    const bound2 = closest.coordinates;
-    map.fitBounds([bound1, bound2], {
+    // const bound1 = coords;
+    const bound1 = new mapboxgl.LngLat(coords[0], coords[1]);
+    // const bound2 = closest.coordinates;
+    // console.log(bound1);
+    const bound2 = new mapboxgl.LngLat(closest.coordinates[0], closest.coordinates[1]);
+    // console.log(bound2);
+    const bounds = new mapboxgl.LngLatBounds(bound1, bound2);
+    console.log(bounds);
+
+    map.fitBounds(bounds, {
       padding: {
         top: 50,
         bottom: 50,

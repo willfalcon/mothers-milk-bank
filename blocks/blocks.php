@@ -43,9 +43,9 @@ function cdhq_register_blocks() {
 
 	wp_register_script('mapbox-gl-search-script', 'https://api.mapbox.com/search-js/v1.0.0-beta.20/web.js', array(), false, true);
 	wp_register_script('mapbox-gl-directions-script', 'https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.js', array(), false, true);
-	wp_register_script('mapbox-gl-script', 'https://api.tiles.mapbox.com/mapbox-gl-js/v3.1.0/mapbox-gl.js', array('mapbox-gl-search-script', 'mapbox-gl-directions-script'), false, true);
+	wp_register_script('mapbox-gl-script', 'https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js', array('mapbox-gl-search-script', 'mapbox-gl-directions-script'), '3.3', true);
 	wp_register_style('mapbox-gl-directions-style', 'https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.css');
-	wp_register_style('mapbox-gl-style', 'https://api.tiles.mapbox.com/mapbox-gl-js/v3.1.0/mapbox-gl.css', array('mapbox-gl-directions-style'), false);
+	wp_register_style('mapbox-gl-style', 'https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css', array('mapbox-gl-directions-style'), '3.3');
 
 	foreach ($blocks as $block) {
 		$block_base = $base . $block;
