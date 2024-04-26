@@ -1,5 +1,9 @@
 import distance from '@turf/distance';
 import { parsePhoneNumber } from 'libphonenumber-js';
+import viewportSize from 'viewport-size';
+
+const width = viewportSize.getWidth();
+const mobile = width < 768;
 
 async function initMap() {
   // Get locations
@@ -18,9 +22,23 @@ async function initMap() {
   // Add location markers
   let markers = [];
   locations.forEach((location, i) => {
-    const popup = new mapboxgl.Popup({
+    const phone = parsePhoneNumber(location.phone, 'US');
+    const mobilePopup = new mapboxgl.Popup({
       className: 'map-location-popup',
-    }).setHTML(`
+    }).setHTML(`<h2>${location.name}</h2>
+          <h3>${location.city}</h3>
+          <a target="_blank" href="https://maps.apple.com/?saddr=${origin[1]},${origin[0]}&daddr=${encodeURIComponent(
+      location.address
+    )}&dirflag=d">Open in Maps</a>
+          <address>${location.address}</address>
+          <a href="${phone.getURI}">${phone.formatNational()}</a>
+          <p>${location.notes}</p>`);
+
+    const popup = mobile
+      ? mobilePopup
+      : new mapboxgl.Popup({
+          className: 'map-location-popup',
+        }).setHTML(`
       <h2>${location.name}</h2>
       <h3>${location.city}</h3>
     `);
@@ -69,29 +87,33 @@ async function initMap() {
     const closest = getClosestLocation(locations, coords);
 
     // 3. move map to show both locations
-    // const bound1 = coords;
     const bound1 = new mapboxgl.LngLat(coords[0], coords[1]);
-    // const bound2 = closest.coordinates;
-    // console.log(bound1);
     const bound2 = new mapboxgl.LngLat(closest.coordinates[0], closest.coordinates[1]);
-    // console.log(bound2);
     const bounds = new mapboxgl.LngLatBounds(bound1, bound2);
-    console.log(bounds);
 
     map.fitBounds(bounds, {
-      padding: {
-        top: 50,
-        bottom: 50,
-        left: 350,
-        right: 50,
-      },
+      padding: mobile
+        ? {
+            top: 100,
+            bottom: 50,
+            left: 50,
+            right: 50,
+          }
+        : {
+            top: 50,
+            bottom: 50,
+            left: 350,
+            right: 50,
+          },
     });
 
     // 4. show location details in sidebar
-    if (locationDataRef) map.removeControl(locationDataRef);
-    const locationDataBox = new LocationData({ ...closest, distance: distance(coords, closest.coordinates), origin: bound1 });
-    locationDataRef = locationDataBox;
-    map.addControl(locationDataBox, 'top-left');
+    if (!mobile) {
+      if (locationDataRef) map.removeControl(locationDataRef);
+      const locationDataBox = new LocationData({ ...closest, distance: distance(coords, closest.coordinates), origin: bound1 });
+      locationDataRef = locationDataBox;
+      map.addControl(locationDataBox, 'top-left');
+    }
 
     // 5. show location name popup over marker
     const marker = markers.find(marker => marker.location === closest.name);
