@@ -3,4 +3,5 @@
   <time class="post__date" datetime="<?= get_the_date('Y-m-d') ?>"><?php the_date( 'F j, Y' ); ?></time>
   <div class="post__excerpt"><?php the_excerpt(); ?></div>
   <span class="post__read-more button--small"><?php _e('Read More', 'mdhs'); ?></span>
+  <?php the_post_thumbnail( 'thumbnail', array('class' => 'post__thumbnail') ); ?>
 </a>
