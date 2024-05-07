@@ -1,0 +1,14 @@
+.tags {
+  @include content-width(500px);
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  .tag:not(.acf-button) {
+    @extend .button;
+    background: var(--mmb-pink);
+    color: var(--mmb-milk-light);
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    border-radius: $radii-small;
+  }
+}

@@ -22,7 +22,6 @@
         <span></span>
         <span></span>
       </button>
-
       <nav class="header-nav hover-nav" id="header-nav">
         <?php 
           wp_nav_menu( 

@@ -246,6 +246,11 @@ function cdhq_modify_posts_query( $query ) {
     $query->set('posts_per_page', 9);
     return $query;
   }
+  if (is_tag() && $query->is_main_query()) {
+    $query->set( 'post_type', array('post', 'story'));
+    $query->set('posts_per_page', 9);
+    return $query;
+  }
   return $query;
 }
 add_action( 'pre_get_posts', 'cdhq_modify_posts_query' );

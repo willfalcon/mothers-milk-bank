@@ -3,26 +3,29 @@
 function cdhq_color_classes() {
   $colors = get_field('color_palette', 'option');
 
-  echo '<style>';
-  foreach ($colors as $color) {
-    $label = slugify($color['label']);
-    $code = $color['color'];
-    echo "
-      .has-$label-underline {
-        text-decoration: underline;
-        text-decoration-color: $code;
-        text-decoration-thickness: 2px;
-        text-underline-offset: 2px;
-      }
-      .has-$label-fill-color {
-        fill: $code;
-      }
-      .has-$label-fill-color svg {
-        fill: $code;
-      }
-    "; 
+  if (is_array($colors)) {
+    
+    echo '<style>';
+    foreach ($colors as $color) {
+      $label = slugify($color['label']);
+      $code = $color['color'];
+      echo "
+        .has-$label-underline {
+          text-decoration: underline;
+          text-decoration-color: $code;
+          text-decoration-thickness: 2px;
+          text-underline-offset: 2px;
+        }
+        .has-$label-fill-color {
+          fill: $code;
+        }
+        .has-$label-fill-color svg {
+          fill: $code;
+        }
+      "; 
+    }
+    echo '</style>';
   }
-  echo '</style>';
 }
 
 if (function_exists('get_field')) {  
