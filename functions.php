@@ -347,3 +347,16 @@ if (!function_exists('check_blocks')) {
 		return null;
 	}
 }
+
+
+/**
+ * Disable unused ACFE modules
+ */
+add_action('acf/init', 'cdhq_acfe_modules');
+function cdhq_acfe_modules(){
+  // disable options pages
+  acf_update_setting('acfe/modules/options_pages', false);
+  acf_update_setting('acfe/modules/block_types', false); 
+  acf_update_setting('acfe/modules/options', false);
+  acf_update_setting('acfe/modules/forms', false);
+}

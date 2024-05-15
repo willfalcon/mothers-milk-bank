@@ -12,15 +12,27 @@ function cdhq_register_required_plugins() {
     array(
       'name' => 'Advanced Custom Fields',
       'slug' => 'advanced-custom-fields-pro',
-      'source' => get_template_directory() . '/inc/TGM-Plugin-Activation/plugins/advanced-custom-fields-pro.zip',
+      'source' => get_template_directory() . '/inc/TGM-Plugin-Activation/plugins/advanced-custom-fields-pro-6.2.10.zip',
       'required' => true,
-      'version' => '5.8.0'
+      'version' => '6.2.10'
     ),
+		array(
+			'name' => 'ACF Extended',
+			'slug' => 'acf-extended',
+			'required' => false
+		),
     array(
 			'name'      => 'User Role Editor',
 			'slug'      => 'user-role-editor',
 			'required'  => false
 		),
+		array(
+			'name' => 'Gravity Forms',
+			'slug' => 'gravityforms',
+			'source' => get_template_directory() . '/inc/TGM-Plugin-Activation/plugins/gravityforms_2.8.10.zip',
+			'required' => false,
+			'version' => '2.8.10'
+		)
     // array(
 		// 	'name'      => 'ACF to REST API',
 		// 	'slug'      => 'acf-to-rest-api',
@@ -58,11 +70,6 @@ function cdhq_register_required_plugins() {
 		// 	'slug' => 'gtranslate',
 		// 	'required' => false
 		// ),
-		// array(
-		// 	'name' => 'ACF Extended',
-		// 	'slug' => 'acf-extended',
-		// 	'required' => false
-		// )
   );
 
   $config = array(

@@ -9,7 +9,7 @@ async function initMap() {
   // Get locations
   const res = await fetch('/wp-json/mmb/v1/locations').then(res => res.json());
   const { locations } = res;
-
+  console.log(locations);
   // Setup map
   mapboxgl.accessToken = res.token;
   const map = new mapboxgl.Map({
@@ -48,7 +48,7 @@ async function initMap() {
   });
 
   // Add map controls
-  // map.addControl(new mapboxgl.GeolocateControl());
+  map.addControl(new mapboxgl.GeolocateControl());
   map.addControl(new mapboxgl.ScaleControl());
 
   // Temporary marker and control refs

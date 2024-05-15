@@ -4,5 +4,8 @@
     "titleBar.inactiveForeground": "#ffffffCC",
     "titleBar.activeBackground": "#6FC1C7",
     "titleBar.inactiveBackground": "#b6d2d4"
-  }
+  },
+  "cSpell.words": [
+    "milkbank"
+  ]
 }

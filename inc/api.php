@@ -69,6 +69,7 @@ function geo_check_locations($locations) {
       return $location;
     }
     $coordinates = geocode($location['address'], $mapbox_token);
+    write_log($coordinates);
     $location['coordinates'] = $coordinates;
     update_row('locations', $i + 1, $location, 'options');
     return $location;
