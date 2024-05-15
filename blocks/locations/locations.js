@@ -9,7 +9,6 @@ async function initMap() {
   // Get locations
   const res = await fetch('/wp-json/mmb/v1/locations').then(res => res.json());
   const { locations } = res;
-  console.log(locations);
   // Setup map
   mapboxgl.accessToken = res.token;
   const map = new mapboxgl.Map({
@@ -174,8 +173,7 @@ async function showDirectionPath(map, from, to, token) {
       ','
     )}?access_token=${token}&waypoints_per_route=true&geometries=geojson`
   ).then(res => res.json());
-  console.log(res);
-  console.log('distance: ', res.routes[0].distance / 1609.34);
+
   // add source and layer for direction path to map
   const existingSource = map.getSource('route-source');
   if (existingSource) {
