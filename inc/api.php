@@ -31,7 +31,31 @@ add_action( 'rest_api_init', function () {
     'permission_callback' => '__return_true'
   ));
 
+  register_rest_route('mmb/v1', '/stories/(?P<page>\S+)', array(
+    'methods' => \WP_REST_Server::READABLE,
+    'callback' => 'cdhq_api_get_stories',
+    'permission_callback' => '__return_true'
+  ));
+
 } );
+
+function cdhq_api_get_stories($data) {
+  $stories = get_posts(array(
+    'post_type' => 'story',
+    'paged' => $data['page'],
+    'posts_per_page' => 3
+  )); 
+
+  foreach ($stories as $story) {
+    $permalink = get_the_permalink($story->ID);
+    $title = get_field('source', $story->ID) ? get_field('source', $story->ID) : get_the_title($story->ID);
+    $excerpt = get_field('excerpt', $story->ID);
+    $story->permalink = $permalink;
+    $story->title = $title;
+    $story->excerpt = $excerpt;
+  }
+  return $stories;
+}
 
 
 

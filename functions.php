@@ -242,8 +242,8 @@ function cdhq_modify_posts_query( $query ) {
     $query->set( 'post_type', array( 'post', 'event' ) );
     return $query;
   }
-  if (is_post_type_archive('story')) {
-    $query->set('posts_per_page', 9);
+  if (is_post_type_archive('story') && $query->is_main_query()) {
+    $query->set('posts_per_page', 3);
     return $query;
   }
   if (is_tag() && $query->is_main_query()) {
