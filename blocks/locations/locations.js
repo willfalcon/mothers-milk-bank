@@ -5,13 +5,17 @@ import viewportSize from 'viewport-size';
 const width = viewportSize.getWidth();
 const mobile = width < 768;
 
+function parseCoords(coords) {
+  return coords.split(',').map(c => parseFloat(c));
+}
 async function initMap() {
   // Get locations
   const res = await fetch('/wp-json/mmb/v1/locations').then(res => res.json());
   const { locations } = res;
+  console.log(locations);
   // Setup map
   mapboxgl.accessToken = res.token;
-  let map = new mapboxgl.Map({
+  const map = new mapboxgl.Map({
     container: 'mmb-locations',
     style: 'mapbox://styles/mapbox/light-v11',
     center: [-89.3985, 32.7547],
@@ -21,8 +25,9 @@ async function initMap() {
   // Add location markers
   let markers = [];
   locations.forEach((location, i) => {
-    let phone = parsePhoneNumber(location.phone, 'US');
-    let mobilePopup = new mapboxgl.Popup({
+    const phone = parsePhoneNumber(location.phone, 'US');
+
+    const mobilePopup = new mapboxgl.Popup({
       className: 'map-location-popup',
     }).setHTML(`<h2>${location.name}</h2>
           <h3>${location.city}</h3>
@@ -33,7 +38,7 @@ async function initMap() {
           <a href="${phone.getURI}">${phone.formatNational()}</a>
           <p>${location.notes}</p>`);
 
-    let popup = mobile
+    const popup = mobile
       ? mobilePopup
       : new mapboxgl.Popup({
           className: 'map-location-popup',
@@ -41,38 +46,55 @@ async function initMap() {
       <h2>${location.name}</h2>
       <h3>${location.city}</h3>
     `);
-    let marker = new mapboxgl.Marker({}).setLngLat(location.coordinates).setPopup(popup).addTo(map);
+    const markerCoords = parseCoords(location.coordinates);
+    const marker = new mapboxgl.Marker({}).setLngLat(markerCoords).setPopup(popup).addTo(map);
 
     markers.push({ marker, location: location.name });
   });
 
-  // Add geolocate
-  let geolocate = new mapboxgl.GeolocateControl();
-  map.addControl(geolocate);
-  geolocate._updateCamera = () => {};
-  geolocate.on('geolocate', e => {
-    let coords = [e.coords.longitude, e.coords.latitude];
-    startLocationInfo(coords);
-  });
-
+  // Add map controls
+  // map.addControl(new mapboxgl.GeolocateControl());
   map.addControl(new mapboxgl.ScaleControl());
 
   // Temporary marker and control refs
   let currentLocationMarkerRef;
   let locationDataRef;
 
-  function startLocationInfo(coords) {
+  // Add search box
+  const search = new MapboxSearchBox();
+  search.accessToken = res.token;
+  search.options = {
+    bbox: [
+      [-91.655009, 30.173943],
+      [-88.097888, 34.996052],
+    ],
+    flyTo: false,
+  };
+  map.addControl(search, 'top-left');
+  search.unbindMap();
+
+  // Setup search behavior
+
+  // Callback for when a user clicks a search reslt
+
+  search.addEventListener('retrieve', event => {
+    const featureCollection = event.detail;
+    const feature = featureCollection.features[0];
+    const coords = feature.geometry.coordinates;
+
     // 1. Add marker to searched location
     if (currentLocationMarkerRef) {
       currentLocationMarkerRef.remove();
     }
-    currentLocationMarkerRef = new mapboxgl.Marker({ color: '#D14B83' }).setLngLat(coords).addTo(map);
+    currentLocationMarkerRef = new mapboxgl.Marker({ color: '#D14B73' }).setLngLat(coords).addTo(map);
+
     // 2. figure out which location is closest
     const closest = getClosestLocation(locations, coords);
 
+    const destCords = parseCoords(closest.coordinates);
     // 3. move map to show both locations
     const bound1 = new mapboxgl.LngLat(coords[0], coords[1]);
-    const bound2 = new mapboxgl.LngLat(closest.coordinates[0], closest.coordinates[1]);
+    const bound2 = new mapboxgl.LngLat(destCords[0], destCords[1]);
     const bounds = new mapboxgl.LngLatBounds(bound1, bound2);
 
     map.fitBounds(bounds, {
@@ -94,42 +116,22 @@ async function initMap() {
     // 4. show location details in sidebar
     if (!mobile) {
       if (locationDataRef) map.removeControl(locationDataRef);
-      let locationDataBox = new LocationData({ ...closest, distance: distance(coords, closest.coordinates), origin: bound1 });
+      const locationDataBox = new LocationData({
+        ...closest,
+        distance: distance(coords, parseCoords(closest.coordinates)),
+        origin: bound1,
+      });
       locationDataRef = locationDataBox;
       map.addControl(locationDataBox, 'top-left');
     }
 
     // 5. show location name popup over marker
-    let marker = markers.find(marker => marker.location === closest.name);
+    const marker = markers.find(marker => marker.location === closest.name);
     marker.marker.togglePopup();
 
     // 6. maybe show direction path?
 
-    showDirectionPath(map, coords, closest.coordinates, res.token, locationDataRef);
-  }
-
-  // Add search box
-  let search = new MapboxSearchBox();
-  search.accessToken = res.token;
-  search.options = {
-    bbox: [
-      [-91.655009, 30.173943],
-      [-88.097888, 34.996052],
-    ],
-    flyTo: false,
-  };
-  map.addControl(search, 'top-left');
-  search.unbindMap();
-
-  // Setup search behavior
-
-  // Callback for when a user clicks a search result
-
-  search.addEventListener('retrieve', event => {
-    const featureCollection = event.detail;
-    const feature = featureCollection.features[0];
-    const coords = feature.geometry.coordinates;
-    startLocationInfo(coords);
+    showDirectionPath(map, coords, parseCoords(closest.coordinates), res.token, locationDataRef);
   });
 }
 
@@ -138,8 +140,8 @@ if (document.querySelector('#mmb-locations')) initMap();
 function getClosestLocation(locations, coordinates) {
   return locations.reduce((acc, curr) => {
     if (!acc) return curr;
-    const currDistance = distance(coordinates, curr.coordinates, { units: 'miles' });
-    const accDistance = distance(coordinates, acc.coordinates, { units: 'miles' });
+    const currDistance = distance(coordinates, parseCoords(curr.coordinates), { units: 'miles' });
+    const accDistance = distance(coordinates, parseCoords(acc.coordinates), { units: 'miles' });
     if (currDistance < accDistance) {
       return curr;
     }
@@ -200,7 +202,7 @@ async function showDirectionPath(map, from, to, token) {
         'line-cap': 'round',
       },
       paint: {
-        'line-color': '#D14B83',
+        'line-color': '#D14B73',
         'line-width': 3,
       },
     });

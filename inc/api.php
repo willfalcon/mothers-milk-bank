@@ -14,11 +14,6 @@ add_action( 'rest_api_init', function () {
     'callback' => 'cdhq_api_get_field',
     'permission_callback' => '__return_true'
     ) );
-  register_rest_route( 'mmb/v1', '/clear-locations', array(
-    'methods' => 'get',
-    'callback' => 'cdhq_api_clear_locations',
-    'permission_callback' => '__return_true'
-    ) );
 
   // register_rest_route( 'mdhs/v1', '/search/(?P<s>[a-zA-Z0-9-]+)', array(
   //   'methods' => 'GET',
@@ -31,31 +26,7 @@ add_action( 'rest_api_init', function () {
     'permission_callback' => '__return_true'
   ));
 
-  register_rest_route('mmb/v1', '/stories/(?P<page>\S+)', array(
-    'methods' => \WP_REST_Server::READABLE,
-    'callback' => 'cdhq_api_get_stories',
-    'permission_callback' => '__return_true'
-  ));
-
 } );
-
-function cdhq_api_get_stories($data) {
-  $stories = get_posts(array(
-    'post_type' => 'story',
-    'paged' => $data['page'],
-    'posts_per_page' => 3
-  )); 
-
-  foreach ($stories as $story) {
-    $permalink = get_the_permalink($story->ID);
-    $title = get_field('source', $story->ID) ? get_field('source', $story->ID) : get_the_title($story->ID);
-    $excerpt = get_field('excerpt', $story->ID);
-    $story->permalink = $permalink;
-    $story->title = $title;
-    $story->excerpt = $excerpt;
-  }
-  return $stories;
-}
 
 
 
@@ -98,7 +69,8 @@ function geo_check_locations($locations) {
       return $location;
     }
     $coordinates = geocode($location['address'], $mapbox_token);
-    $location['coordinates'] = $coordinates;
+    write_log($coordinates);
+    $location['coordinates'] = $coordinates[0] . ',' . $coordinates[1];
     update_row('locations', $i + 1, $location, 'options');
     return $location;
   }, $locations, array_keys($locations));
@@ -118,14 +90,4 @@ function geocode($address, $mapbox_token) {
 
   return $resp->features[0]->geometry->coordinates;
   
-}
-
-function cdhq_api_clear_locations() {
-  
-  while (have_rows('locations', 'options')) { 
-    the_row();
-    update_sub_field('coordinates', null);
-  }
-
-  return get_field('locations', 'options');
 }

@@ -1,9 +1,4 @@
-#stories-archive {
-  padding: 0 2rem;
-}
 .stories-list {
-  padding: 0;
-
   @include responsive {
     transform: none;
     position: static;
